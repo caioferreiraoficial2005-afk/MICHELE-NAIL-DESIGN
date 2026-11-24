@@ -457,6 +457,7 @@ footer a{color:var(--rose)}
   .hero-img{object-position:85% 0%}
   .hero-word{font-size:15vw}
   .proc .big,.proc.rev .big{font-size:11.5vw}
+  .proc::after,.proc.rev::after{background:linear-gradient(0deg,#070504 0%,rgba(7,5,4,.45) 22%,transparent 45%)!important}
 }
 </style>
 </head>
@@ -718,7 +719,7 @@ gsap.from('.cor .tx>*',{opacity:0,y:30,duration:1.2,stagger:.1,ease:'power3.out'
 // serviços: cada um entra de um jeito
 const PROCS=gsap.utils.toArray('.proc');
 const procTL=(s)=>gsap.timeline({scrollTrigger:{trigger:s,start:MOB?'top 85%':'top 75%',end:MOB?'top 15%':'top top',scrub:.8}});
-PROCS.forEach(s=>{const img=s.querySelector(':scope>img');
+PROCS.forEach(s=>{const img=s.querySelector(':scope>img'); if(MOB) return;
   gsap.fromTo(img,{scale:1.25},{scale:1.05,ease:'none',scrollTrigger:{trigger:s,start:'top bottom',end:'bottom top',scrub:true}});});
 // 01 GEL: a foto abre do centro, clareando; o texto vem da esquerda
 (()=>{const s=PROCS[0],img=s.querySelector(':scope>img');
